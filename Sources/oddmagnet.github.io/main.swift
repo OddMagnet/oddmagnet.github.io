@@ -25,23 +25,12 @@ struct OddWebsite: Website {
 }
 
 // This will generate your website using my theme:
-//try OddWebsite().publish(
-//    withTheme: .oddTheme,
-//    additionalSteps: [
-//    ],
-//    plugins: [
-//        .splash(withClassPrefix: "")
-//    ]
-//)
-
-try OddWebsite().publish(using: [
-    .installPlugin(.splash(withClassPrefix: "")),
-    .copyResources(),
-    .addMarkdownFiles(),
-    .sortItems(by: \.date, order: .descending),
-    .generateHTML(withTheme: .oddTheme),
-    .generateRSSFeed(including: [.blog, .projects]),
-    .generateSiteMap(),
-    .deploy(using: .gitHub("OddMagnet/oddmagnet.github.io", useSSH: false))
+try OddWebsite().publish(
+    withTheme: .oddTheme,
+    additionalSteps: [
+        .deploy(using: .gitHub("OddMagnet/oddmagnet.github.io", useSSH: false))
+    ],
+    plugins: [
+        .splash(withClassPrefix: "")
     ]
 )
