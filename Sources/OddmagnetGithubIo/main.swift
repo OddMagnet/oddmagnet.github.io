@@ -24,5 +24,12 @@ struct OddmagnetGithubIo: Website {
     var imagePath: Path? { nil }
 }
 
-// This will generate your website using the built-in Foundation theme:
-try OddmagnetGithubIo().publish(withTheme: .foundation)
+// This will generate your website using my theme:
+try OddmagnetGithubIo().publish(
+    withTheme: .oddTheme,
+    additionalSteps: [
+    ],
+    plugins: [
+        .splash(withClassPrefix: "")
+    ]
+)
