@@ -6,7 +6,9 @@ import Plot
 struct OddmagnetGithubIo: Website {
     enum SectionID: String, WebsiteSectionID {
         // Add the sections that you want your website to contain here:
-        case posts
+        case blog
+        case about
+        case projects
     }
 
     struct ItemMetadata: WebsiteItemMetadata {
@@ -14,10 +16,11 @@ struct OddmagnetGithubIo: Website {
     }
 
     // Update these properties to configure your website:
-    var url = URL(string: "https://your-website-url.com")!
-    var name = "OddmagnetGithubIo"
-    var description = "A description of OddmagnetGithubIo"
+    var url = URL(string: "https://oddmagnet.github.io")!
+    var name = "OddWebsite"
+    var description = "Hi, I'm Michael, a 💻 programmer, 🎸 music lover, and  enthusiast."
     var language: Language { .english }
+    // TODO: add favicon image
     var imagePath: Path? { nil }
 }
 
