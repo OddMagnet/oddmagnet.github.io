@@ -3,7 +3,7 @@ import Publish
 import Plot
 
 // This type acts as the configuration for your website.
-struct OddmagnetGithubIo: Website {
+struct OddWebsite: Website {
     enum SectionID: String, WebsiteSectionID {
         // Add the sections that you want your website to contain here:
         case blog
@@ -25,7 +25,7 @@ struct OddmagnetGithubIo: Website {
 }
 
 // This will generate your website using my theme:
-try OddmagnetGithubIo().publish(
+try OddWebsite().publish(
     withTheme: .oddTheme,
     additionalSteps: [
     ],
