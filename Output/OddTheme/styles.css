@@ -95,6 +95,10 @@ a {
     margin-bottom: 0;
 }
 
+.item-list p.item-date {
+    margin-bottom: 10px;
+}
+
 .tag-list {
     margin-bottom: 15px;
 }

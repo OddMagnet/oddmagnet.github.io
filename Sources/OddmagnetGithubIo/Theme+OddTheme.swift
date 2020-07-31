@@ -196,6 +196,10 @@ private extension Node where Context == HTML.BodyContext {
                         .href(item.path),
                         .text(item.title)
                     )),
+                    .p(
+                        .class("item-date"),
+                        .text(DateFormatter.localizedString(from: item.date, dateStyle: .medium, timeStyle: .none))
+                    ),
                     .tagList(for: item, on: site),
                     .p(.text(item.description))
                 ))
