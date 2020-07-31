@@ -3,11 +3,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "OddmagnetGithubIo",
+    name: "oddmagnet.github.io",
     products: [
         .executable(
-            name: "OddmagnetGithubIo",
-            targets: ["OddmagnetGithubIo"]
+            name: "oddmagnet.github.io",
+            targets: ["oddmagnet.github.io"]
         )
     ],
     dependencies: [
@@ -16,7 +16,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "OddmagnetGithubIo",
+            name: "oddmagnet.github.io",
             dependencies: [
                 "Publish",
                 "SplashPublishPlugin"
