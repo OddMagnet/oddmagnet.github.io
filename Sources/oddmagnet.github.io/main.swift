@@ -42,5 +42,6 @@ try OddWebsite().publish(using: [
     .generateHTML(withTheme: .oddTheme),
     .generateRSSFeed(including: [.blog, .projects]),
     .generateSiteMap(),
+    .deploy(using: .gitHub("OddMagnet/oddmagnet.github.io", useSSH: false))
     ]
 )
