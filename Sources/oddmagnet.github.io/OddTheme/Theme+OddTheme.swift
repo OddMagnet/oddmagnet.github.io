@@ -13,8 +13,7 @@ import SplashPublishPlugin
 extension Theme {
     static func oddTheme(contacts: Contacts, projects: Projects) -> Self {
         Theme(
-            htmlFactory: OddHtmlFactory(contacts: contacts, projects: projects),
-            resourcePaths: ["Resources/OddTheme/styles.css"]
+            htmlFactory: OddHtmlFactory(contacts: contacts, projects: projects)
         )
     }
 }
