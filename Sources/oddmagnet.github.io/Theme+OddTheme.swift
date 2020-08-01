@@ -11,15 +11,18 @@ import Plot
 import SplashPublishPlugin
 
 extension Theme {
-    static var oddTheme: Theme {
+    static func oddTheme(contacts: Contacts, projects: Projects) -> Self {
         Theme(
-            htmlFactory: OddHtmlFactory(),
+            htmlFactory: OddHtmlFactory(contacts: contacts, projects: projects),
             resourcePaths: ["Resources/OddTheme/styles.css"]
         )
     }
 }
 
 private struct OddHtmlFactory<Site: Website>: HTMLFactory {
+    let contacts: Contacts
+    let projects: Projects
+    
     func makeIndexHTML(for index: Index,
                        context: PublishingContext<Site>) throws -> HTML {
         HTML(
@@ -27,22 +30,55 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
             .head(for: index, on: context.site),
             .body(
                 .header(for: context, selectedSection: nil),
+                                
+                // TODO: Idea, give wrapper necessary classes so projects and posts don't need their own
                 .wrapper(
-                    .h1(.text(index.title)),
-                    .p(
-                        .class("description"),
-                        .text(context.site.description)
+                    // small about section
+                    .div(.class("smallAbout"),
+                        .img(.class("avatar"), .src("avatar.jpg")),
+                        .div(.class("introduction"),
+                             .contentBody(index.body)
+                        )
                     ),
-                    .h2("Latest content"),
-                    .itemList(
-                        for: context.allItems(
-                            sortedBy: \.date,
-                            order: .descending
+
+                    // small showcase for projects
+                    // TODO: classes for project showcase
+                    .if(projects.items.count > 0,
+                        .div(.class(""),
+                             // TODO: classes for project H1
+                            .div(.class(""),
+                                 .a(
+                                    .href("/projects"),
+                                    .h1("👨🏼‍💻 Projects")
+                                )
+                            ),
+                            // TODO: classes for projects unordered list
+                            .div(.class(""),
+                                 .indexProjectList(for: projects.items, on: context.site)
+                            )
+                        )
+                    ),
+                    
+                    
+                    // posts
+                    // TODO: classes for posts
+                    .div(.class(""),
+                         // TODO: classes for H1
+                         .div(.class(""),
+                              .a(
+                                .href("/blog"),
+                                .h1("📓 Latest content")
+                            )
                         ),
-                        on: context.site
-                    )
-                ),
-                .footer(for: context.site)
+                         .itemList(
+                            for: context.allItems(sortedBy: \.date, order: .descending),
+                            on: context.site
+                        )
+                    ),
+                    
+                    // footer
+                    .footer(for: context.site)
+                )
             )
         )
     }
@@ -229,6 +265,31 @@ private extension Node where Context == HTML.BodyContext {
                 .text("RSS feed"),
                 .href("/feed.rss")
             ))
+        )
+    }
+    
+    // MARK: Custom nodes
+    static func indexProjectList<T: Website>(for items: [Project], on site: T) -> Node {
+        // TODO: CSS for projects container
+        return .ul(.class("ul-project-container"),
+                   .forEach(items) { item in
+                    // TODO: classes for the project items
+                    .li(.class(""),
+                        .a(
+                            .href("projects#\(item.code)"),
+                            // small project info box
+                            .div(
+                                .img(.src(item.appIcon ?? "defaultAppIcon.jpg")),
+                                .br(),
+                                .text(item.name),
+                                // TODO: class for project subheader
+                                .p(.class(""),
+                                   .text(item.subheader)
+                                )
+                            )
+                        )
+                    )
+            }
         )
     }
 }

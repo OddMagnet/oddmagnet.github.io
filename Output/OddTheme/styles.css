@@ -39,6 +39,31 @@ header .site-name {
     font-weight: bold;
 }
 
+.smallAbout {
+    background: #eee;
+    border-radius: 20px 20px 20px 20px;
+}
+
+div.introduction {
+    overflow: hidden;
+    min-height: 210px;
+    padding-top: 8px;
+    margin-bottom: 30px;
+}
+
+div.introduction h1 {
+    margin-bottom: 10px;
+}
+
+img.avatar {
+    overflow: auto;
+    float: left;
+    border-radius: 10px;
+    width: 20%;
+    max-width: 150px;
+    margin-right: 20px;
+}
+
 nav {
     margin-top: 20px;
 }
@@ -196,6 +221,10 @@ pre code .preprocessing { color: #643820; }
 
     header {
         background-color: #000;
+    }
+    
+    .smallAbout {
+        background: #333
     }
     
     pre {

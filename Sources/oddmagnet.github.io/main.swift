@@ -22,11 +22,12 @@ struct OddWebsite: Website {
     var language: Language { .english }
     // TODO: add favicon image
     var imagePath: Path? { nil }
+    var contactLinks: [Contact] = [.location, .email, .github, .twitter]
 }
 
 // This will generate your website using my theme:
 try OddWebsite().publish(
-    withTheme: .oddTheme,
+    withTheme: .oddTheme(contacts: contacts, projects: projects),
     additionalSteps: [
         .deploy(using: .gitHub("OddMagnet/oddmagnet.github.io", useSSH: false))
     ],
