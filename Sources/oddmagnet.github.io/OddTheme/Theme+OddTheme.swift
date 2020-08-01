@@ -25,7 +25,7 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
     func makeIndexHTML(for index: Index, context: PublishingContext<Site>) throws -> HTML {
         HTML(
             .lang(context.site.language),
-            .head(for: index, on: context.site),
+            .head(for: index, on: context.site, stylesheetPaths: ["OddTheme/styles.css"]),
             .body(
                 .header(for: context, selectedSection: nil),
                     
