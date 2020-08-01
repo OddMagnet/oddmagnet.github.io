@@ -29,7 +29,7 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
             .head(for: index, on: context.site),
             .body(
                 .wrapper(
-//                    .header(for: context, selectedSection: nil),
+                    .header(for: context, selectedSection: nil)
                     
                     // short intro
 
