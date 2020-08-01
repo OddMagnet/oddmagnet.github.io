@@ -28,12 +28,10 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
             .lang(context.site.language),
             .head(for: index, on: context.site),
             .body(
-                .wrapper(
-                    .header(for: context, selectedSection: nil)
+                .header(for: context, selectedSection: nil)
                     
                     // short intro
 
-                )
             )
         )
     }

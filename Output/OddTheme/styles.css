@@ -3,3 +3,209 @@
 *  Copyright (c) Michael Brünen 2020
 */
 
+/* Colors */
+:root {
+    --website-background: #ffffff;
+    --header-background: #e25822;
+    --website-text-color: #000000;
+    --link-color: #10316b;
+    --navigation-items-text-color: #ffffff;
+    --hover-color: #e4eaf5;
+    --preview-background-color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --website-background: #222831;
+        --header-background: #00adb5;
+        --website-text-color: #eeeeee;
+        --link-color: #008A90;
+        --navigation-items-text-color: #eeeeee;
+        --hover-color: #6e5773;
+        --preview-background-color: #ffffff;
+    }
+}
+
+/* Basics */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: var(--website-background);
+    color: var(--website-text-color);
+    font-family: Helvetica, Arial;
+    text-align: center;
+}
+.wrapper {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    text-align: left;
+}
+header {
+    background-color: var(--header-background);
+}
+header .wrapper {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+header a {
+    text-decoration: none;
+}
+header .site-name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+/*.logo {
+    width: 500px;
+    max-width: 80%;
+    margin-bottom: 6px;
+} TODO: Implement logo */
+
+
+/* Navigation */
+nav {
+    display: inline-block;
+    background-color: var(--link-color);
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+nav li {
+    display: inline-block;
+}
+nav a {
+    display: block;
+    color: #ffffff;
+    padding: 0 20px;
+    line-height: 30px;
+}
+nav a:hover,
+nav li.selected a {
+    color: var(--link-color);
+    background-color: #ffffff;
+}
+
+/* Headings & paragraphs */
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+h2 {
+    margin: 20px 0;
+}
+p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--header-background);
+    text-decoration: none;
+}
+
+/* Misc.*/
+.description {
+    margin-bottom: 40px;
+}
+.content {
+    margin-bottom: 40px;
+}
+.browse-all {
+    display: block;
+    margin-bottom: 30px;
+}
+
+/* Item lists */
+.item-list > li {
+    display: block;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--website-content-background-color);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.item-list> li> a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 15px;
+}
+.item-list> li> a:hover {
+    background-color: var(--hover-color);
+}
+.item-list > li:last-child {
+    margin-bottom: 0;
+}
+.item-list h1 {
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+.item-list p {
+    margin-bottom: 0;
+}
+.item-list.grid {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.item-list.grid> li {
+    margin-top: 0;
+}
+.item-list.grid.latest> li,
+.related-content .item-list> li {
+    padding: 0;
+}
+
+
+/* Tag lists */
+.tag-list {
+    margin-bottom: 15px;
+}
+.tag-list li,
+.tag {
+    display: inline-block;
+    background-color: #112d4e;
+    color: var(--navigation-items-text-color);
+    padding: 4px 6px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.tag-list a,
+.tag a {
+    color: var(--navigation-items-text-color);
+    text-decoration: none;
+}
+.item-page .tag-list {
+    display: inline-block;
+}
+.all-tags li {
+    font-size: 1.4em;
+    margin-right: 10px;
+    padding: 6px 10px;
+}
+
+/* Footer */
+footer {
+    padding-top: 5px;
+}
+footer p {
+    font-size: 0.85em;
+    text-align: center;
+}
+
+/* Media queries */
+@media(max-width: 600px) {
+    .wrapper {
+        padding: 40px 20px;
+    }
+}
