@@ -284,12 +284,37 @@ div.projects-ul {
     background: var(--hover-color);
 }
 
-
-
-
-
-
-
+/* Blog list */
+.item-list> li {
+    margin-top: 20px;
+    background-color: var(--website-content-background-color);
+    padding: 12px 14px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.item-list> li> a {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 15px;
+}
+.item-list> li> a:hover {
+    background-color: var(--hover-color);
+}
+.item-list.grid> li {
+    margin-top: 0;
+}
+.item-list.grid.latest> li,
+.related-content .item-list> li {
+    padding: 0;
+}
+.item-list.grid article.project {
+    color: var(--website-text-color);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+}
 
 
 

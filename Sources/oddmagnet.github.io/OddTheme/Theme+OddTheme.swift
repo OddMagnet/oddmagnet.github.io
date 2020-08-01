@@ -38,7 +38,29 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
                      .div(.class("projects-ul"),
                           .indexProjectList(for: projects.items, on: context.site)
                     )
+                ),
+                
+                // Blog
+                .div(.class("wrapper content clearfix"),
+                     .div(.class("section-header float-container"),
+                          .a(
+                            .href("/blog"),
+                            .h1("📓 Latest posts")
+                        )
+                    ),
+                     .itemList(
+                        // TODO: filter for categories
+                        for: context.allItems(sortedBy: \.date, order: .descending),
+                        on: context.site
+                    ),
+                     .a(.class("browse-all"),
+                        .href("/blog"),
+                        // TODO: add counter of posts
+                        .text("Browse all posts")
+                    )
                 )
+                
+//                TODO: Insert footer here
 
             )
         )
