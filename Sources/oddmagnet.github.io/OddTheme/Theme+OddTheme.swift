@@ -58,9 +58,10 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
                         // TODO: add counter of posts
                         .text("Browse all posts")
                     )
-                )
+                ),
                 
-//                TODO: Insert footer here
+                // Footer
+                .footer(for: context.site)
 
             )
         )
