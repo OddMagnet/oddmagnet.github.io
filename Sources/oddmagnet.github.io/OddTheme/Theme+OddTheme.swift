@@ -24,7 +24,18 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
     let projects: Projects
 
     func makeIndexHTML(for index: Index, context: PublishingContext<Site>) throws -> HTML {
-        HTML()
+        HTML(
+            .lang(context.site.language),
+            .head(for: index, on: context.site),
+            .body(
+                .wrapper(
+//                    .header(for: context, selectedSection: nil),
+                    
+                    // short intro
+
+                )
+            )
+        )
     }
     
     func makeSectionHTML(for section: Section<Site>, context: PublishingContext<Site>) throws -> HTML {
