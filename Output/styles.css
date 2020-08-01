@@ -12,6 +12,7 @@
     --navigation-items-text-color: #ffffff;
     --hover-color: #e4eaf5;
     --preview-background-color: #ffffff;
+    --website-content-background-color: #ececeb;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,6 +24,7 @@
         --navigation-items-text-color: #eeeeee;
         --hover-color: #6e5773;
         --preview-background-color: #ffffff;
+        --website-content-background-color: #393e46;
     }
 }
 
@@ -117,12 +119,21 @@ a:hover {
 .description {
     margin-bottom: 40px;
 }
-.content {
-    margin-bottom: 40px;
+.clearfix {
+        overflow: auto;
 }
-.browse-all {
-    display: block;
-    margin-bottom: 30px;
+.content {
+    border-radius: 0px 0px 10px 10px;
+}
+a.browse-all {
+    color: var(--header-background);
+    font-weight: bold;
+    float: right;
+    line-height: 1em;
+}
+
+a.browse-all:hover {
+    text-decoration: underline;
 }
 
 /* Item lists */
@@ -131,9 +142,7 @@ a:hover {
     padding: 20px;
     border-radius: 20px;
     background-color: var(--website-content-background-color);
-    margin-top: 20px;
     margin-bottom: 10px;
-    overflow: hidden;
 }
 .item-list> li> a {
     display: block;
@@ -151,8 +160,13 @@ a:hover {
     margin-bottom: 15px;
     font-size: 1.3em;
 }
+
 .item-list p {
     margin-bottom: 0;
+}
+
+.item-list article h1 a:hover {
+    color: var(--header-background);
 }
 .item-list.grid {
     margin-top: 20px;
@@ -165,6 +179,11 @@ a:hover {
 .related-content .item-list> li {
     padding: 0;
 }
+.item-list.grid article.project p.appSubheader {
+    color: gray;
+    font-size: 0.75em;
+}
+
 
 
 /* Tag lists */
@@ -193,6 +212,111 @@ a:hover {
     margin-right: 10px;
     padding: 6px 10px;
 }
+
+/*Project showcase */
+ .index h2 {
+     display: inline-block;
+     float: left;
+     font-size: 1.5em;
+     background-repeat: no-repeat;
+     background-position-y: center;
+ }
+.page {
+    font-size: 1.05em;
+    text-align: left;
+}
+.section-header h1 {
+    font-size: 1.6em;
+    padding-top: 15px;
+    font-weight: bold;
+}
+.float-container> * {
+    float: left;
+}
+
+.float-container::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+div.projects-ul {
+    display: flex;
+    justify-content: space-around;
+}
+.ul-project-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+
+    color: var(--website-text-color);
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.0em;
+    font-weight: bold;
+}
+.ul-project-container p.appSubheader {
+    color: gray;
+    font-size: 0.7em;
+}
+.li-project-item {
+    flex-grow: 1;
+    background: var(--website-content-background-color);
+    border-radius: 20px;
+    padding: 5px;
+    min-width: 160px;
+    max-width: 180px;
+    margin: 20px;
+    line-height: 30px;
+}
+.li-project-item img {
+    padding: 1px;
+    width: 120px;
+    height: 120px;
+    vertical-align: top;
+}
+.li-project-item a:hover {
+    color: var(--link-color);
+}
+.li-project-item:hover {
+    background: var(--hover-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Footer */
 footer {

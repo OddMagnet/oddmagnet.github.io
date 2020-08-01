@@ -28,9 +28,17 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
             .lang(context.site.language),
             .head(for: index, on: context.site),
             .body(
-                .header(for: context, selectedSection: nil)
+                .header(for: context, selectedSection: nil),
                     
-                    // short intro
+                // Projects
+                .div(.class("index page wrapper content clearfix "),
+                     .div(.class("section-header float-container"),
+                          .h1("👨🏼‍💻 Projects")
+                    ),
+                     .div(.class("projects-ul"),
+                          .indexProjectList(for: projects.items, on: context.site)
+                    )
+                )
 
             )
         )
