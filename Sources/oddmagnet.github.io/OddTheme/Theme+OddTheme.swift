@@ -87,7 +87,24 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
     }
     
     func makeItemHTML(for item: Item<Site>, context: PublishingContext<Site>) throws -> HTML {
-        HTML()
+        HTML(
+            .lang(context.site.language),
+            .head(for: item, on: context.site, stylesheetPaths: ["OddTheme/styles.css"]),
+            .body(.class("item-page"),
+                  .header(for: context, selectedSection: item.sectionID),
+                  .wrapper(
+                    .article(
+                        .div(.class("content"),
+                             .contentBody(item.body)
+                        ),
+                        .p(.text("Published on: \(item.dateString())")),
+                        .span("Tags: "),
+                        .tagList(for: item, on: context.site)
+                    )
+                ),
+                  .footer(for: context.site)
+            )
+        )
     }
     
     func makePageHTML(for page: Page, context: PublishingContext<Site>) throws -> HTML {
