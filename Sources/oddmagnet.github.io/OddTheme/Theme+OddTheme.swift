@@ -137,6 +137,31 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
     }
     
     func makeTagDetailsHTML(for page: TagDetailsPage, context: PublishingContext<Site>) throws -> HTML? {
-        HTML()
+        HTML(
+            .lang(context.site.language),
+            .head(for: page, on: context.site, stylesheetPaths: ["OddTheme/styles.css"]),
+            .body(
+                .header(for: context, selectedSection: nil),
+                .wrapper(
+                    .h1("Tagged with: "),
+                    .span(.class("tag"),
+                          .text(page.tag.string)
+                    ),
+                    .a(.class("browse-all"),
+                       .text("Browse all tags"),
+                       .href(context.site.tagListPath)
+                    ),
+                    .itemList(
+                        for: context.items(
+                            taggedWith: page.tag,
+                            sortedBy: \.date,
+                            order: .descending
+                        ),
+                        on: context.site
+                    )
+                ),
+                .footer(for: context.site)
+            )
+        )
     }
 }
