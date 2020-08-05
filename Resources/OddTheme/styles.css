@@ -25,6 +25,17 @@
         --hover-color: #6e5773;
         --preview-background-color: #ffffff;
         --website-content-background-color: #393e46;
+       
+       /* splash plugin colors */
+        pre code .keyword { color: #fc5fA3; }
+        pre code .type { color: #5dd8ff; }
+        pre code .call { color: #67b7a4; }
+        pre code .property { color: #67b7a4; }
+        pre code .number { color: #d0bf69; }
+        pre code .string { color: #fc6a5d; }
+        pre code .comment { color: #6c7986; }
+        pre code .dotAccess { color: #67b7a4; }
+        pre code .preprocessing { color: #fd8f3f; }
     }
 }
 
@@ -462,6 +473,49 @@ img.app_download {
     height: 80px;
 }
 
+/* Code highlighting */
+pre { margin: 20px 0; }
+pre code {
+    display: block;
+    padding: 15px 20px;
+    border-radius: 12px;
+    line-height: 1.4em;
+    font-size: 0.95em;
+    overflow-x: auto;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+}
+/* splash plugin colors */
+pre code {
+    background-color: #eee;
+    color: #3c3f3c;
+}
+pre code .keyword { color: #9b2393; }
+pre code .type { color: #0b4f79; }
+pre code .call { color: #326d74; }
+pre code .property { color: #326d74; }
+pre code .number { color: #1c00cf; }
+pre code .string { color: #c41a16; }
+pre code .comment { color: #5d6c79; }
+pre code .dotAccess { color: #326d74; }
+pre code .preprocessing { color: #643820; }
+/* splash plugin dark colors */
+@media (prefers-color-scheme: dark) {
+    pre code {
+        background-color: #1a1a1a;
+        color: #a9bcbc;
+    }
+    /* splash plugin colors */
+    pre code .keyword { color: #fc5fA3; }
+    pre code .type { color: #5dd8ff; }
+    pre code .call { color: #67b7a4; }
+    pre code .property { color: #67b7a4; }
+    pre code .number { color: #d0bf69; }
+    pre code .string { color: #fc6a5d; }
+    pre code .comment { color: #6c7986; }
+    pre code .dotAccess { color: #67b7a4; }
+    pre code .preprocessing { color: #fd8f3f; }
+}
 
 
 
