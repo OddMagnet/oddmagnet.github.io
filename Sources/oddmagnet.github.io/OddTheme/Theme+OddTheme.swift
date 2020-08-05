@@ -90,10 +90,10 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
         HTML(
             .lang(context.site.language),
             .head(for: item, on: context.site, stylesheetPaths: ["OddTheme/styles.css"]),
-            .body(.class("item-page"),
+            .body(
                   .header(for: context, selectedSection: item.sectionID),
                   .wrapper(
-                    .article(
+                    .article(.class("item-page"),
                         .div(.class("content"),
                              .contentBody(item.body)
                         ),
