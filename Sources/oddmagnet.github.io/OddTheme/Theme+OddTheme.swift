@@ -114,9 +114,20 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
             .head(for: page, on: context.site, stylesheetPaths: ["OddTheme/styles.css"]),
             .if(page.path == "about",
                 .body(
-                    .header(for: context, selectedSection: nil),
+                    .header(for: context, selectedSection: OddWebsite.SectionID.about as? Site.SectionID),
                     .wrapper(
                         .contentBody(page.body)
+                    ),
+                    .footer(for: context.site)
+                )
+            ),
+            .if(page.path == "projects",
+                .body(
+                    .header(for: context, selectedSection: OddWebsite.SectionID.projects as? Site.SectionID),
+                    .wrapper(
+                        .div(.class("projectListSpacing"),
+                             .projectList(for: projects.items, on: context.site)
+                        )
                     ),
                     .footer(for: context.site)
                 )
