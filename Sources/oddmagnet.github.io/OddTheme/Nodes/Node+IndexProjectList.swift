@@ -17,7 +17,7 @@ extension Node where Context == HTML.BodyContext {
                         .a(
                             .href("/projects#\(item.code)"),
                             .div(
-                                .img(.src("Images/" + (item.appIcon ?? "placeholderAppIcon.jpg"))),
+                                .img(.src("/Previews/" + (item.appIcon))),
                                 .br(),
                                 .text(item.name),
                                 .p(.class("appSubheader"),
