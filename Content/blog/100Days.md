@@ -55,4 +55,4 @@ One thing that stood out to me was the last wrap up challenge of adding sorting 
 
 
 # Day 100: Final Exam
-[Certificate](/certificate.jpg)
+[Certificate](/Images/certificate.jpg)
