@@ -17,7 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --primary: #2D2D25;             /* Eerie Black */
+        --primary: #2D2D25;             /* Pine Tree */
         --primary-darker: #161612;      /* Eerie Black */
         --secondary: #21C063;           /* Emerald */
         --secondary-darker: #126936;    /* Cadmium Green */
@@ -237,6 +237,7 @@ a.browse-all:hover {
 .page {
     font-size: 1.05em;
     text-align: left;
+    padding-bottom: 0px;
 }
 .section-header h1 {
     font-size: 1.6em;

@@ -237,6 +237,7 @@ a.browse-all:hover {
 .page {
     font-size: 1.05em;
     text-align: left;
+    padding-bottom: 0px;
 }
 .section-header h1 {
     font-size: 1.6em;
