@@ -32,7 +32,10 @@ private struct OddHtmlFactory<Site: Website>: HTMLFactory {
                 // Projects
                 .div(.class("index page wrapper content clearfix "),
                      .div(.class("section-header float-container"),
-                          .h1("👨🏼‍💻 Projects")
+                          .a(
+                            .h1("👨🏼‍💻 Projects"),
+                            .href("/projects")
+                        )
                     ),
                      .div(.class("projects-ul"),
                           .indexProjectList(for: projects.items, on: context.site)
