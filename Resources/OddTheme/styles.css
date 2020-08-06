@@ -5,14 +5,12 @@
 
 /* Colors */
 :root {
-/*    --website-background: #ffffff;*/
-/*    --header-background: #e25822;*/
-/*    --website-text-color: #000000;*/
-/*    --link-color: #10316b;*/
-/*    --navigation-items-text-color: #ffffff;*/
-/*    --hover-color: #e4eaf5;*/
-/*    --preview-background-color: #ffffff;*/
-/*    --website-content-background-color: #ececeb;*/
+    --primary: #F6F6F4;             /* Cultured */
+    --primary-darker: #DADAD2;      /* Timberwolf */
+    --secondary: #C14953;           /* Brick Red */
+    --secondary-darker: #F0803C;    /* Mango Tango */
+    --text: #091F34;                /* Oxford Blue */
+    --link: #342F37;                /* Black Coffee */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,14 +21,6 @@
         --secondary-darker: #126936;    /* Cadmium Green */
         --text: #EDF5FC;                /* Alice Blue */
         --link: #A39BA8;                /* Heliotrope Gray */
-/*        --website-background: #222831;*/
-/*        --header-background: #00adb5;*/
-/*        --website-text-color: #eeeeee;*/
-/*        --link-color: #008A90;*/
-/*        --navigation-items-text-color: #eeeeee;*/
-/*        --hover-color: #6e5773;*/
-/*        --preview-background-color: #ffffff;*/
-/*        --website-content-background-color: #393e46;*/
        
        /* splash plugin colors */
         pre code .keyword { color: #fc5fA3; }
@@ -147,14 +137,9 @@ a:hover {
     border-radius: 0px 0px 10px 10px;
 }
 a.browse-all {
-/*    color: var(--header-background);*/
     font-weight: bold;
     float: right;
     line-height: 1em;
-}
-
-a.browse-all:hover {
-/*    text-decoration: underline;*/
 }
 
 /* Item lists */
@@ -181,13 +166,8 @@ a.browse-all:hover {
     margin-bottom: 15px;
     font-size: 1.3em;
 }
-
 .item-list p {
     margin-bottom: 0;
-}
-
-.item-list article h1 a:hover {
-    color: var(--secondary);
 }
 .item-list {
     margin-bottom: 20px;
@@ -272,7 +252,6 @@ div.projects-ul {
     font-weight: bold;
 }
 .ul-project-container p.appSubheader {
-/*    color: var(--text);*/
     font-size: 0.7em;
 }
 .li-project-item {
@@ -515,24 +494,6 @@ pre code .preprocessing { color: #643820; }
     pre code .dotAccess { color: #67b7a4; }
     pre code .preprocessing { color: #fd8f3f; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Footer */
 footer {
