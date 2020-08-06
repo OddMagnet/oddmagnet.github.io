@@ -89,7 +89,12 @@ nav {
     overflow: hidden;
 }
 nav li {
+    width: 100px;
+    border-right: 1px solid black;
     display: inline-block;
+}
+nav li:last-of-type {
+    border-right: none;
 }
 nav a {
     display: block;

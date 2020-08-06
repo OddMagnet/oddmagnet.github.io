@@ -89,7 +89,12 @@ nav {
     overflow: hidden;
 }
 nav li {
+    width: 100px;
+    border-right: 1px solid black;
     display: inline-block;
+}
+nav li:last-of-type {
+    border-right: none;
 }
 nav a {
     display: block;
@@ -137,14 +142,9 @@ a:hover {
     border-radius: 0px 0px 10px 10px;
 }
 a.browse-all {
-/*    color: var(--header-background);*/
     font-weight: bold;
     float: right;
     line-height: 1em;
-}
-
-a.browse-all:hover {
-/*    text-decoration: underline;*/
 }
 
 /* Item lists */
@@ -171,14 +171,9 @@ a.browse-all:hover {
     margin-bottom: 15px;
     font-size: 1.3em;
 }
-
 .item-list p {
     margin-bottom: 0;
 }
-
-/*.item-list article h1 a:hover {*/
-/*    color: var(--secondary);*/
-/*}*/
 .item-list {
     margin-bottom: 20px;
 }
@@ -262,7 +257,6 @@ div.projects-ul {
     font-weight: bold;
 }
 .ul-project-container p.appSubheader {
-/*    color: var(--text);*/
     font-size: 0.7em;
 }
 .li-project-item {
@@ -505,24 +499,6 @@ pre code .preprocessing { color: #643820; }
     pre code .dotAccess { color: #67b7a4; }
     pre code .preprocessing { color: #fd8f3f; }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Footer */
 footer {
