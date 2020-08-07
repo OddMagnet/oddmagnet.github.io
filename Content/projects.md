@@ -1,1 +1,1 @@
-# TODO: Add text to projects.md
+# OddMagnet's projects
