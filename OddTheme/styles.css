@@ -273,6 +273,8 @@ div.projects-ul {
     background: var(--secondary);
 }
 .li-project-item img {
+    background: white;
+    margin-top: 5px;
     padding: 1px;
     width: 120px;
     height: 120px;
@@ -362,12 +364,12 @@ div.projects-ul {
     text-align: center;
     flex-grow: 1;
 }
-.project img {
-    padding: 6px;
-    width: 120px;
-    height: 120px;
-    vertical-align: middle;
-}
+/*.project img {*/
+/*    padding: 6px;*/
+/*    width: 120px;*/
+/*    height: 120px;*/
+/*    vertical-align: middle;*/
+/*}*/
 ul {
     list-style-type: none;
     margin-block-start: 0;
@@ -430,11 +432,9 @@ ul {
     background-color: var(--text);
 }
 img.app_icon {
+    background: white;
     width: 120px;
     height: 120px;
-}
-img.app_download {
-    padding-top: 20px;
 }
 h2.app_name {
     font-size: 1.6em;
@@ -445,15 +445,28 @@ h6.app_header {
     color: gray;
     font-weight: normal;
 }
-div.app_description {
-    padding-left: 20px;
-}
+/*div.app_description {*/
+/*    padding-left: 20px;*/
+/*}*/
 .app_description h4 {
     padding-top: 15px;
 }
 img.app_download {
-    width: 80px;
-    height: 80px;
+    background: var(--primary);
+    border: 3px solid var(--primary);
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+}
+@media (prefers-color-scheme: dark) {
+    img.app_download {
+        background: var(--text);
+        border: 3px solid var(--text);
+    }
+}
+img.app_download:hover {
+    background: var(--secondary);
+    border: 3px solid var(--secondary);
 }
 
 /* Code highlighting */
