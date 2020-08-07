@@ -19,12 +19,12 @@ extension Node where Context == HTML.BodyContext {
                          .div(.class("preview"),
                               .div(.class("preview-inner"),
                                    .if(item.previewType == PreviewType.imageOrGif,
-                                       .img(.src("/Previews/" + (item.previewFile)))
+                                       .img(.src(item.previewFile))
                                     ),
                                    .if(item.previewType == PreviewType.video,
                                        .video(
                                         .source(
-                                            .src("/Previews/" + (item.previewFile)),
+                                            .src(item.previewFile),
                                             .attribute(named: "type", value: "video/mp4")
                                         ),
                                         .attribute(named: "autoplay"),
@@ -43,7 +43,7 @@ extension Node where Context == HTML.BodyContext {
                             .div(.class("app-column-left"),
                                  .img(.id(item.code),
                                       .class("app_icon"),
-                                      .src("/Previews/" + (item.appIcon))
+                                      .src(item.appIcon)
                                 )
                             ),
                             // App column right
