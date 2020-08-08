@@ -482,7 +482,7 @@ pre code {
     -webkit-overflow-scrolling: touch;
 }
 /* splash plugin colors */
-pre code {
+code {
     background-color: #eee;
     color: #3c3f3c;
 }
@@ -497,7 +497,7 @@ pre code .dotAccess { color: #326d74; }
 pre code .preprocessing { color: #643820; }
 /* splash plugin dark colors */
 @media (prefers-color-scheme: dark) {
-    pre code {
+    code {
         background-color: #1a1a1a;
         color: #a9bcbc;
     }
