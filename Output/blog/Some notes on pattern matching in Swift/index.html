@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="og:site_name" content="OddWebsite"/><link rel="canonical" href="https://oddmagnet.github.io/blog/Some%20notes%20on%20pattern%20matching%20in%20Swift"/><meta name="twitter:url" content="https://oddmagnet.github.io/blog/Some%20notes%20on%20pattern%20matching%20in%20Swift"/><meta name="og:url" content="https://oddmagnet.github.io/blog/Some%20notes%20on%20pattern%20matching%20in%20Swift"/><title>Some notes on pattern matching in Swift | OddWebsite</title><meta name="twitter:title" content="Some notes on pattern matching in Swift | OddWebsite"/><meta name="og:title" content="Some notes on pattern matching in Swift | OddWebsite"/><meta name="description" content="Some notes on pattern matching in Swift."/><meta name="twitter:description" content="Some notes on pattern matching in Swift."/><meta name="og:description" content="Some notes on pattern matching in Swift."/><meta name="twitter:card" content="summary"/><link rel="stylesheet" href="/OddTheme/styles.css" type="text/css"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="shortcut icon" href="/images/favicon.png" type="image/png"/><link rel="alternate" href="/feed.rss" type="application/rss+xml" title="Subscribe to OddWebsite"/></head><body><header><div class="wrapper"><a class="site-name" href="/"><h1>OddWebsite</h1></a><h4>Hi, I'm Michael, a 💻 programmer, 🎸 music lover, and  enthusiast.</h4><nav><ul><li class="selected"><a href="/blog">Blog</a></li><li><a href="/about">About</a></li><li><a href="/projects">Projects</a></li></ul></nav></div></header><div class="wrapper"><article class="item-page"><div class="content"><h1>Some notes on pattern matching in Swift</h1><p>When using pattern matching in Swift most tasks can be accomplished with the basics, sometimes there are ways for a more succinct solutions and in a few cases the basics won't suffice.<br>In this post I'm going over a few things I learned that I personally would classify as intermediate to advanced pattern matching.</p><h2>Tuples</h2><p>Even though I rarely use tuples, the idea of using them in pattern matching is quite interesting to me.<br>Since it's possible to ignore parts of a tuple, code like this is possible:</p><pre><code><span class="keyword">let</span> tuple = (artist: <span class="string">"Metallica"</span>, album: <span class="string">"Master of Puppets"</span>)
+
+<span class="keyword">switch</span> tuple {
+	<span class="keyword">case</span> (<span class="string">"Metallica"</span>, <span class="string">"Master of Puppets"</span>):
+		<span class="call">print</span>(<span class="string">"This album was released in 1986"</span>)
+	<span class="keyword">case</span> (<span class="string">"Metallica"</span>, <span class="keyword">_</span>):
+		<span class="call">print</span>(<span class="string">"Metallica's first album was released in 1983, their latest in 2016"</span>)
+	<span class="keyword">case</span> (<span class="keyword">_</span>, <span class="string">"St. Anger"</span>):
+		<span class="call">print</span>(<span class="string">"This Metallica album was released in 2003)</span>
+}
+</code></pre><p>Additionally tuples can also be used with computed values, e.g. the classic <em>FizzBuzz</em> challenge can be solved like this:</p><pre><code><span class="keyword">switch</span> (input % <span class="number">3</span> == <span class="number">0</span>, input % <span class="number">5</span> == <span class="number">0</span>) {
+	<span class="keyword">case</span> (<span class="keyword">true</span>, <span class="keyword">false</span>):
+		<span class="call">print</span>(<span class="string">"Fizz"</span>)
+	<span class="keyword">case</span> (<span class="keyword">false</span>, <span class="keyword">true</span>):
+		<span class="call">print</span>(<span class="string">"Buzz"</span>)
+	<span class="keyword">case</span> (<span class="keyword">true</span>, <span class="keyword">true</span>):
+		<span class="call">print</span>(<span class="string">"FizzBuzz"</span>)
+} 
+</code></pre><h2>Ranges</h2><p>More often than not when I see ranges in pattern matching it looks something like this:</p><pre><code><span class="keyword">if</span> <span class="number">1980</span>..&lt;<span class="number">2000</span> = year { ... }
+</code></pre><p>Which is sad, because since the above creates an instance of the <strong>Range</strong> type, it also has access to it's methods, which makes code like this possible:</p><pre><code><span class="keyword">let</span> year = <span class="number">1992</span>
+
+<span class="keyword">switch</span> year {
+	<span class="keyword">case</span> (<span class="number">1946</span>..&lt;<span class="number">1965</span>).<span class="call">containts</span>(year):
+		<span class="call">print</span>(<span class="string">"You're a baby boomer"</span>)
+	<span class="keyword">case</span> (<span class="number">1965</span>..&lt;<span class="number">1980</span>).<span class="call">containts</span>(year):
+		<span class="call">print</span>(<span class="string">"You're a Gen X'er"</span>)
+	<span class="keyword">case</span> (<span class="number">1980</span>..&lt;<span class="number">1995</span>).<span class="call">containts</span>(year):
+		<span class="call">print</span>(<span class="string">"You're a Millenial"</span>)
+}
+</code></pre><p>This becomes even more useful when used in combination with associated values of an Enum:</p><pre><code><span class="keyword">enum</span> MusicType {
+	<span class="keyword">case</span> headphones
+	<span class="keyword">case</span> speakers
+	<span class="keyword">case</span> live(audienceLoudness: <span class="type">Int</span>)
+}
+
+<span class="keyword">let</span> concert = <span class="type">MusicType</span>.<span class="call">live</span>(audienceLoudness: <span class="number">100</span>)
+
+<span class="keyword">switch</span> concert {
+	<span class="keyword">case</span> .<span class="dotAccess">headphones</span>:
+		<span class="call">print</span>(<span class="string">"Keeping it to yourself"</span>)
+	<span class="keyword">case</span> .<span class="dotAccess">speakers</span>:
+		<span class="call">print</span>(<span class="string">"Listening with friends"</span>)
+	<span class="keyword">case</span> .<span class="dotAccess">concert</span>(<span class="keyword">let</span> loudness) <span class="keyword">where</span> (<span class="number">1</span>..&lt;<span class="number">30</span>).<span class="call">contains</span>(loudness):
+		<span class="call">print</span>(<span class="string">"A pretty lousy concert"</span>)
+	<span class="keyword">case</span> .<span class="dotAccess">concert</span>(<span class="keyword">let</span> loudness) <span class="keyword">where</span> (<span class="number">30</span>..&lt;<span class="number">60</span>).<span class="call">contains</span>(loudness):
+		<span class="call">print</span>(<span class="string">"A decent concert"</span>)
+	<span class="keyword">case</span> .<span class="dotAccess">concert</span>(<span class="keyword">let</span> loudness) <span class="keyword">where</span> (<span class="number">60</span>..&lt;<span class="number">80</span>).<span class="call">contains</span>(loudness):
+		<span class="call">print</span>(<span class="string">"A great concert"</span>)
+	<span class="keyword">case</span> .<span class="dotAccess">concert</span>(<span class="keyword">let</span> loudness) <span class="keyword">where</span> (<span class="number">80</span>...<span class="number">100</span>).<span class="call">contains</span>(loudness):
+		<span class="call">print</span>(<span class="string">"One of the best concerts ever"</span>)
+}
+</code></pre></div><p>Published on: Sunday, 9. August 2020</p><span>Tags: </span><ul class="tag-list"><li><a href="/tags/swift">Swift</a></li><li><a href="/tags/blog">Blog</a></li></ul></article></div><footer><p>Written in Swift, made with <a href="https://github.com/johnsundell/publish">Publish</a> &amp; <a href="https://github.com/JohnSundell/SplashPublishPlugin">Splash</a>.</p><p>©2020 Michael Brünen</p></footer></body></html>
