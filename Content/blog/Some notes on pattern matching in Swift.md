@@ -1,7 +1,7 @@
 ---
 date: 2020-08-09 15:00
 description: Some notes on pattern matching in Swift.
-tags: Swift, Blog
+tags: Swift, Blog, Syntax
 ---
 
 # Some notes on pattern matching in Swift

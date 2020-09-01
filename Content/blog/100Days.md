@@ -1,7 +1,7 @@
 ---
 date: 2020-07-30 14:26
 description: An overview of my experience with the 100 Days of SwiftUI challenge.
-tags: Hacking with Swift, 100 Days of SwiftUI, SwiftUI, Blog
+tags: 100 Days of SwiftUI, SwiftUI, Blog
 ---
 
 # 100 Days of Swift UI

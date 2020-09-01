@@ -21,7 +21,7 @@
         --secondary-darker: #126936;    /* Cadmium Green */
         --text: #EDF5FC;                /* Alice Blue */
         --link: #A39BA8;                /* Heliotrope Gray */
-       
+
        /* splash plugin colors */
         pre code .keyword { color: #fc5fA3; }
         pre code .type { color: #5dd8ff; }
@@ -320,14 +320,20 @@ div.projects-ul {
     margin-bottom: 40px;
 }
 .item-page h2 {
-    font-size: 1.6em;
+    font-size: 1.8em;
     font-weight: bold;
     margin-top: 25px;
     margin-bottom: 25px;
 }
 .item-page h3 {
     font-size: 1.5em;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.item-page h4 {
+    font-size: 1.2em;
     margin-top: 20px;
+    margin-bottom: 16px;
 }
 .item-page p {
     line-height: 28px;
